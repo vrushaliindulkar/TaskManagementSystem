@@ -1,0 +1,21 @@
+2024-12-21 00:27:17DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:27:18INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:27:18INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-21 00:28:21DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:28:22INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:28:22DEBUG org.techhub.client.TaskManagementSystemApp main ...Task Management System.... 
+2024-12-21 00:28:44DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:28:45INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:29:19DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:29:20INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:30:03FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: No value specified for parameter 2 
+2024-12-21 00:31:28DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:31:29INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:31:46DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:31:47INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:32:12FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: No value specified for parameter 2 
+2024-12-21 00:33:24DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:33:25INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-21 00:33:44FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: No value specified for parameter 2 
+2024-12-21 00:35:20DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-21 00:35:21INFO org.techhub.respository.DBConfig main Database Connected Successfully 

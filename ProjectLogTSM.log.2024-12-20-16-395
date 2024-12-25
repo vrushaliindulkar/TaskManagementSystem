@@ -1,0 +1,119 @@
+2024-12-19 20:35:26DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 20:35:26INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 20:35:26INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 20:35:30INFO org.techhub.client.TaskManagementSystemApp main Enter Employee Details 
+2024-12-19 20:36:26DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 20:36:27INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 20:36:27INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 20:36:45INFO org.techhub.client.TaskManagementSystemApp main Enter Employee Details 
+2024-12-19 20:37:14FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: No value specified for parameter 9 
+2024-12-19 21:06:35DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 21:06:36INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 21:06:36INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 21:07:48INFO org.techhub.client.TaskManagementSystemApp main Enter Employee Details 
+2024-12-19 22:06:09DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:06:11INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:06:11INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:07:15DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:07:16INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:07:16INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:09:03DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:09:05INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:09:05INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:10:17DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:10:18INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:10:18INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:10:23INFO org.techhub.client.TaskManagementSystemApp main Enter Employee Details 
+2024-12-19 22:10:50INFO org.techhub.client.TaskManagementSystemApp main Employee registration successful 
+2024-12-19 22:11:40DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:11:41INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:11:41INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:14:02DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:14:03INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:14:03INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:16:20DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:16:21INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:16:21INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:16:35INFO org.techhub.client.TaskManagementSystemApp main Enter Employee Details 
+2024-12-19 22:17:09INFO org.techhub.client.TaskManagementSystemApp main Employee registration successful 
+2024-12-19 22:19:02DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:19:03INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:19:03INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:20:25DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:20:26INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:20:26INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:23:56DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:23:58INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:23:58INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:25:18DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:25:19INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:25:19INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-19 22:25:43DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-19 22:25:44INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-19 22:25:44INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:34:09DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:34:10INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:34:10INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:35:02FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:35:02FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 14:42:31DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:42:32INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:42:32INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:43:08DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:43:08INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:43:08INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:43:23FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:43:23FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 14:45:44DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:45:44INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:45:44INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:46:33FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:46:33FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 14:49:23DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:49:24INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:49:24INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:49:37FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:49:37FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 14:57:05DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:57:06INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:57:06INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:57:23FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:57:23FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 14:59:34DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 14:59:34INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 14:59:34INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 14:59:51FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 14:59:51FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 15:00:34DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 15:00:35INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 15:00:35INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 15:00:52FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 15:00:52FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 15:02:39DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 15:02:39INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 15:02:39INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 15:03:08FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() for SELECTs 
+2024-12-20 15:03:08FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=0' at line 1 
+2024-12-20 15:20:00DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 15:20:01INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 15:20:01INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 15:20:21FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where emp_id=-1' at line 1 
+2024-12-20 15:25:08DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 15:25:09INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 15:25:09INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 15:25:21FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: Unknown column 'fristname' in 'where clause' 
+2024-12-20 15:27:40DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 15:27:41INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 15:27:41INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 15:27:52FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: Unknown column 'fristname' in 'where clause' 
+2024-12-20 16:11:26DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 16:11:27INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 16:11:27INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 16:11:39FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: Unknown column 'fristname' in 'where clause' 
+2024-12-20 16:12:55DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 16:12:56INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 16:12:56INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
+2024-12-20 16:13:05FATAL org.techhub.respository.EmployeeRepositoryImpl main EmployeeRepositoryImpl ::java.sql.SQLSyntaxErrorException: Unknown column 'fristname' in 'where clause' 
+2024-12-20 16:13:37DEBUG org.techhub.client.TaskManagementSystemApp main Main Thread started  
+2024-12-20 16:13:38INFO org.techhub.respository.DBConfig main Database Connected Successfully 
+2024-12-20 16:13:38INFO org.techhub.client.TaskManagementSystemApp main Task Management System 
