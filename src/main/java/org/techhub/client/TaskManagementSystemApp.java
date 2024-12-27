@@ -79,21 +79,18 @@ public class TaskManagementSystemApp {
 				System.out.println("Enter Password:");
 				String password = sc.nextLine();
 				System.out.println("Enter Team (Development , Marketing , Hr , Sales) :");
-				String str=sc.nextLine();
-				String team="";
-				if(str.equalsIgnoreCase("development")) {
-					team=Constants.DEVELOPMENT_TEAM;
-				}else if(str.equalsIgnoreCase("marketing"))
-				{
-					team=Constants.MARKETING_TEAM;
-				}
-				else if(str.equalsIgnoreCase("sales"))
-				{
-					team=Constants.SALES_TEAM;
+				String str = sc.nextLine();
+				String team = "";
+				if (str.equalsIgnoreCase("development")) {
+					team = Constants.DEVELOPMENT_TEAM;
+				} else if (str.equalsIgnoreCase("marketing")) {
+					team = Constants.MARKETING_TEAM;
+				} else if (str.equalsIgnoreCase("sales")) {
+					team = Constants.SALES_TEAM;
 				}
 
 				Employee employee = new Employee(0, firstname, lastname, email, phone, address, role, username,
-						password , team);
+						password, team);
 				if (empService.registerEmployee(employee)) {
 					Logger.info("Employee registration successful........");
 				} else {
@@ -151,11 +148,13 @@ public class TaskManagementSystemApp {
 
 		case "employee":
 			System.out.println("============================================================================\n");
-			System.out.println("1. View My Details");
-			System.out.println("2. Update Own Record");
-			System.out.println("3. Add Today's Task");
-			System.out.println("4. Update Task");
-			System.out.println("10. Logout");
+			System.out.println("1. View My Details.");
+			System.out.println("2. Update Own Record.");
+			System.out.println("3. Add Today's Task.");
+			System.out.println("4. Show Today's Task. ");
+			System.out.println("5. Update Task Status.");
+			System.out.println("6. Show Task Status Wise.");
+			System.out.println("10. Logout.");
 			break;
 
 		default:
@@ -299,7 +298,7 @@ public class TaskManagementSystemApp {
 
 					System.out.println((taskService.addPersonalTask(task, empid, pid)) ? "Task Added Successfully..."
 							: "Cannot add task............");
-
+					list.clear();
 				} else {
 					System.out.println("Invalid choice for your role.");
 				}
@@ -331,11 +330,35 @@ public class TaskManagementSystemApp {
 					Project project = new Project(0, projectName, desc, startDate, endDate);
 					System.out.println((projectService.newProject(project) ? "Project added successfully....."
 							: "Some problem is there....."));
-				} else if(role.equalsIgnoreCase("employee"))
-				{
-					
-				}
-				else {
+				} else if (role.equalsIgnoreCase("employee")) {
+
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					Date currentDate = new Date();
+					String formattedDate = dateFormat.format(currentDate);
+					Date parsedDate = dateFormat.parse(formattedDate);
+					int empid = loggedInEmployee.getEmp_Id();
+					List<Task> ToDoList = taskService.getTodaysTask(parsedDate, empid);
+
+					System.out.println("------------------------------------------------ToDo List----------------------------------------------");
+
+					System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n", "Id", "Task", "Date", "Status",
+							"Task Type", "Priority", "DeadLine");
+					System.out.println(
+							"--------------------------------------------------------------------------------------------------------------");
+
+					if (ToDoList != null && !ToDoList.isEmpty()) {
+						ToDoList.forEach(task -> System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n",
+								task.getTaskId(), task.getTaskName(), dateFormat.format(task.getTaskDate()),
+								task.getStatus(), task.getTaskType(), task.getPriority(),
+								dateFormat.format(task.getDeadLine())));
+						Logger.info("Fetch Task details Successfully.");
+					} else {
+						System.out.println("No tasks found for today.");
+						Logger.info("No tasks found for today or there was an issue fetching task details.");
+					}
+					ToDoList.clear();
+
+				} else {
 					System.out.println("Invalid choice for your role.");
 				}
 				break;
@@ -354,7 +377,61 @@ public class TaskManagementSystemApp {
 							project.getProjectId(), project.getProjectName(), project.getDesc(),
 							project.getStart_date(), project.getEnd_date()));
 				} else {
-					Logger.info("Some problem occlurred while fetching project details");
+					Logger.info("Some problem occurred while fetching project details");
+				}
+				System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+				
+				if (role.equalsIgnoreCase("employee")) {
+					System.out.println("Select project name in which you want chage task status.");
+					sc.nextLine();
+					String pname = sc.nextLine();
+					int pid = projectService.getIdByProjectName(pname);
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					
+
+					int empid = loggedInEmployee.getEmp_Id();
+					List<Task> ToDoEmployeList = taskService.getEmployeeAllTask(empid  , pid );
+					
+					System.out.println("--------------------------------------------ToDo List--------------------------------------------------");
+
+					System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n", "Id", "Task", "Date", "Status",
+							"Task Type", "Priority", "DeadLine");
+					System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+					if (ToDoEmployeList != null && !ToDoEmployeList.isEmpty()) {
+						ToDoEmployeList.forEach(task -> System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n",
+								task.getTaskId(), task.getTaskName(), dateFormat.format(task.getTaskDate()),
+								task.getStatus(), task.getTaskType(), task.getPriority(),
+								dateFormat.format(task.getDeadLine())));
+						Logger.info("Fetch Task details Successfully.");
+					} else {
+						System.out.println("No tasks found for today.");
+						Logger.info("No tasks found for today or there was an issue fetching task details.");
+					}
+					String status="";
+					System.out.println("------------------------------------------------------------------------------------------------------");
+					System.out.println("select the task Id");
+					int taskid=sc.nextInt();
+					System.out.println("Which Task Status Do You Want To Set (complete , inprogress , onhold)");
+					sc.nextLine();
+					String s=sc.nextLine();
+					if(s.equalsIgnoreCase("complete"))
+					{
+						status=Constants.STATUS_COMPLETED;
+					}
+					else if(s.equalsIgnoreCase("inprogress")) {
+						status=Constants.STATUS_IN_PROGRESS;
+					}
+					else if(s.equalsIgnoreCase("onhold")) {
+						status=Constants.STATUS_ON_HOLD;
+					}
+					System.out.println((taskService.updateStatus(taskid, status)) ?"Status Updated Successfully." :"Something went wrong");
+					
+					list.clear();
+					ToDoEmployeList.clear();
+				}else {
+					Logger.info("Some problem occurred while fetching project details");
 				}
 
 				break;
@@ -381,7 +458,49 @@ public class TaskManagementSystemApp {
 					System.out.println(
 							(projectService.updateProject(pid, fieldToUpdate, newValue) ? "Record Updated Successfully "
 									: "Some problem is there"));
+				}
+				else if(role.equalsIgnoreCase("employee")) {
+					int empid = loggedInEmployee.getEmp_Id();
+					System.out.println("Enter which type of task do you want to see (Completed , pending , on hold , inprogress)");
+					sc.nextLine();
+					String str=sc.nextLine();
+					
+					String status="";
+					if(str.equalsIgnoreCase("completed"))
+					{
+						status=Constants.STATUS_COMPLETED;
+					}
+					else if(str.equalsIgnoreCase("inprogress")) {
+						status=Constants.STATUS_IN_PROGRESS;
+					}
+					else if(str.equalsIgnoreCase("onhold")) {
+						status=Constants.STATUS_ON_HOLD;
+					}
+					else if(str.equalsIgnoreCase("pending"))
+					{
+						status=Constants.STATUS_PENDING;
+					}
+					
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					
+					System.out.println("--------------------------------------------ToDo List--------------------------------------------------");
 
+					System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n", "Id", "Task", "Date", "Status",
+							"Task Type", "Priority", "DeadLine");
+					System.out.println("--------------------------------------------------------------------------------------------------------------");
+					List<Task> ToDoEmployeeListTaskWise=taskService.getEmployeeTaskStatusWise(empid, status); 
+					if (ToDoEmployeeListTaskWise != null && !ToDoEmployeeListTaskWise.isEmpty()) {
+						ToDoEmployeeListTaskWise.forEach(task -> System.out.printf("%-10s %-30s %-20s %-15s %-10s %-10s %-10s  \n",
+								task.getTaskId(), task.getTaskName(), dateFormat.format(task.getTaskDate()),
+								task.getStatus(), task.getTaskType(), task.getPriority(),
+								dateFormat.format(task.getDeadLine())));
+						Logger.info("Fetch Task details Successfully.");
+					} else {
+						System.out.println("No tasks found for today.");
+						Logger.info("No tasks found for today or there was an issue fetching task details.");
+					}
+					
+					ToDoEmployeeListTaskWise.clear();
 				} else {
 					System.out.println("Invalid choice for your role.");
 				}
@@ -402,110 +521,106 @@ public class TaskManagementSystemApp {
 				}
 				break;
 			case 8:
-				    if(role.equalsIgnoreCase("manager")) {
-				    	System.out.println(
-								"======================================================================================================\n");
-						System.out.println("For Which Department Do You Want To Allocate Task (Development , Marketing , Sales , Hr)");
-						sc.nextLine();
-						String str=sc.nextLine();
-						String dept="";
-						if(str.equalsIgnoreCase("Development")){
-							dept= Constants.DEVELOPMENT_TEAM;
-						}
-						else if(str.equalsIgnoreCase("Marketing"))
-						{
-							dept=Constants.MARKETING_TEAM;
-						}
-						else if(str.equalsIgnoreCase("sales")) {
-							dept=Constants.SALES_TEAM;
-						}
-						else if(str.equalsIgnoreCase("Hr")) {
-							dept=Constants.HR_TEAM;
-						}
-						List<Employee> listEmployee=empService.getEmployeeByTeamId(dept);
-						System.out.println(
-								"---------------------------------------Project List--------------------------------------\n");
-						System.out.printf("%-10s %-20s %-30s %-20s %-20s \n", "Id", "ProjectName", "Desc", "Start date",
-								"End date");
-						System.out.println(
-								"--------------------------------------------------------------------------------------------------------------");
-							list = projectService.getAllProject();
-						if (list != null) {
-							list.forEach(project -> System.out.printf("%-10s %-20s %-30s %-20s %-20s \n",
-									project.getProjectId(), project.getProjectName(), project.getDesc(),
-									project.getStart_date(), project.getEnd_date()));
-						} else {
-							Logger.info("Some problem occlurred while fetching project details");
-						}
-						System.out.println(
-								"--------------------------------------------------------------------------------------------------------------");
+				if (role.equalsIgnoreCase("manager")) {
+					System.out.println(
+							"======================================================================================================\n");
+					System.out.println(
+							"For Which Department Do You Want To Allocate Task (Development , Marketing , Sales , Hr)");
+					sc.nextLine();
+					String str = sc.nextLine();
+					String dept = "";
+					if (str.equalsIgnoreCase("Development")) {
+						dept = Constants.DEVELOPMENT_TEAM;
+					} else if (str.equalsIgnoreCase("Marketing")) {
+						dept = Constants.MARKETING_TEAM;
+					} else if (str.equalsIgnoreCase("sales")) {
+						dept = Constants.SALES_TEAM;
+					} else if (str.equalsIgnoreCase("Hr")) {
+						dept = Constants.HR_TEAM;
+					}
+					List<Employee> listEmployee = empService.getEmployeeByTeamId(dept);
+					System.out.println(
+							"---------------------------------------Project List--------------------------------------\n");
+					System.out.printf("%-10s %-20s %-30s %-20s %-20s \n", "Id", "ProjectName", "Desc", "Start date",
+							"End date");
+					System.out.println(
+							"--------------------------------------------------------------------------------------------------------------");
+					list = projectService.getAllProject();
+					if (list != null) {
+						list.forEach(project -> System.out.printf("%-10s %-20s %-30s %-20s %-20s \n",
+								project.getProjectId(), project.getProjectName(), project.getDesc(),
+								project.getStart_date(), project.getEnd_date()));
+					} else {
+						Logger.info("Some problem occlurred while fetching project details");
+					}
+					System.out.println(
+							"--------------------------------------------------------------------------------------------------------------");
 
-						System.out.println("Select project name in which you want to add task.");
-						
-						String pname = sc.nextLine();
-						int pid = projectService.getIdByProjectName(pname);
+					System.out.println("Select project name in which you want to add task.");
 
-						System.out.println("Enter Task Details.");
-						System.out.println(
-								"----------------------------------------------------------------------------------------");
+					String pname = sc.nextLine();
+					int pid = projectService.getIdByProjectName(pname);
 
-						System.out.println("Enter Task.");
-						String taskname = sc.nextLine();
-						System.out.println("Enter task priority as Low , medium or high ");
-						String str1 = sc.nextLine();
-						String Priority = "";
-						if (str1.equalsIgnoreCase("High")) {
-							Priority = Constants.PRIORITY_HIGH;
-						} else if (str1.equalsIgnoreCase("medium")) {
-							Priority = Constants.PRIORITY_MEDIUM;
-						} else if (str1.equalsIgnoreCase("low")) {
-							Priority = Constants.PRIORITY_LOW;
-						}
+					System.out.println("Enter Task Details.");
+					System.out.println(
+							"----------------------------------------------------------------------------------------");
 
-						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-						Date currentDate = new Date();
-						String formattedDate = dateFormat.format(currentDate);
-						Date parsedDate = dateFormat.parse(formattedDate);
+					System.out.println("Enter Task.");
+					String taskname = sc.nextLine();
+					System.out.println("Enter task priority as Low , medium or high ");
+					String str1 = sc.nextLine();
+					String Priority = "";
+					if (str1.equalsIgnoreCase("High")) {
+						Priority = Constants.PRIORITY_HIGH;
+					} else if (str1.equalsIgnoreCase("medium")) {
+						Priority = Constants.PRIORITY_MEDIUM;
+					} else if (str1.equalsIgnoreCase("low")) {
+						Priority = Constants.PRIORITY_LOW;
+					}
 
-						System.out.println("Enter Deadline for task in this format  (yyyy-MM-dd)");
-						String dedalineInput = sc.nextLine();
-						Date deadline = dateFormat.parse(dedalineInput);
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					Date currentDate = new Date();
+					String formattedDate = dateFormat.format(currentDate);
+					Date parsedDate = dateFormat.parse(formattedDate);
 
-						Task task = new Task(0, taskname, parsedDate, Constants.STATUS_PENDING, Constants.TEAM_TASK,
-								Priority, deadline);
-						boolean b=false;
-						boolean InsertedTask=taskService.addTeamTask(task);
-						
-						int task_id=taskService.getTaskIdByName(taskname);
-						
-						List<String> teamEmails = new ArrayList<>();
-						if(listEmployee!=null) {
-							
-							
-							String empEmail="";
-							for(Employee emp:listEmployee)
-							{
-								
-								int empid=emp.getEmp_Id();
-								empEmail = emp.getEmail();
-							b=taskService.addTeamTaskRef(empid, pid, task_id);
-							
+					System.out.println("Enter Deadline for task in this format  (yyyy-MM-dd)");
+					String dedalineInput = sc.nextLine();
+					Date deadline = dateFormat.parse(dedalineInput);
+
+					Task task = new Task(0, taskname, parsedDate, Constants.STATUS_PENDING, Constants.TEAM_TASK,
+							Priority, deadline);
+					boolean b = false;
+					boolean InsertedTask = taskService.addTeamTask(task);
+
+					int task_id = taskService.getTaskIdByName(taskname);
+
+					List<String> teamEmails = new ArrayList<>();
+					if (listEmployee != null) {
+
+						String empEmail = "";
+						for (Employee emp : listEmployee) {
+
+							int empid = emp.getEmp_Id();
+							empEmail = emp.getEmail();
+							b = taskService.addTeamTaskRef(empid, pid, task_id);
+
 							if (empEmail != null && !empEmail.isEmpty()) {
-					            teamEmails.add(empEmail);
-					        }
+								teamEmails.add(empEmail);
 							}
-							if (empEmail != null && !empEmail.isEmpty()) {
-					            teamEmails.add(empEmail);
-					        }
-							
 						}
-						System.out.println((b  && InsertedTask) ?"Records save successfully" :"some problem is there");
-						
-						
-				    }else {
-				    	System.out.println("Invalid choice for your role");
-				    }
-				    break;
+						if (empEmail != null && !empEmail.isEmpty()) {
+							teamEmails.add(empEmail);
+						}
+
+					}
+					System.out.println((b && InsertedTask) ? "Records save successfully" : "some problem is there");
+					list.clear();
+					listEmployee.clear();
+					
+				} else {
+					System.out.println("Invalid choice for your role");
+				}
+				break;
 
 			case 10:
 				System.out.println("Logged out successfully.");

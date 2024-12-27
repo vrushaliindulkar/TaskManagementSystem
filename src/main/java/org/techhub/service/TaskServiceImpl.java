@@ -36,8 +36,26 @@ public class TaskServiceImpl  implements TaskService{
 
 	@Override
 	public List<Task> getTodaysTask(Date tdate, int emp_id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return taskRepo.getTodaysTask(tdate, emp_id);
+	}
+
+	@Override
+	public List<Task> getEmployeeAllTask(int emp_id , int pid) {
+		
+		return taskRepo.getEmployeeAllTask(emp_id , pid);
+	}
+
+	@Override
+	public boolean updateStatus(int taskid, String status) {
+		
+		return taskRepo.updateStatus(taskid, status);
+	}
+
+	@Override
+	public List<Task> getEmployeeTaskStatusWise(int emp_id, String status) {
+		
+		return taskRepo.getEmployeeTaskStatusWise(emp_id, status);
 	}
 
 }

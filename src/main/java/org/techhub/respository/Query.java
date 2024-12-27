@@ -15,6 +15,11 @@ public class Query {
 	public static String addTeamTask="insert into task values('0' , ? ,?, ?,?,?,?)";
 	public static String getTaskIdByName="select task_id from task where task_name=?";
 	public static String addTeamTaskRef="insert into employeetaskjoin values(? ,? ,?)";
+	public static String getTodoList="SELECT t.task_id, t.task_name, t.task_date, t.status, t.task_type, t.priority, t.deadline FROM task t INNER JOIN employeetaskjoin e ON e.task_id = t.task_id WHERE e.emp_id = ? AND t.task_date = ?";
+	public static String getAllTaskEmployee="SELECT t.task_id, t.task_name, t.task_date, t.status, t.task_type, t.priority, t.deadline FROM task t INNER JOIN employeetaskjoin e ON e.task_id = t.task_id  WHERE e.emp_id = ? and e.project_id=?";
+	public static String updateStatus="update task set status=? where task_id=?";
+	public static String getAllTaskEmployeeStatusWise="SELECT t.task_id, t.task_name, t.task_date, t.status, t.task_type, t.priority, t.deadline FROM task t INNER JOIN employeetaskjoin e ON e.task_id = t.task_id  WHERE e.emp_id = ? and t.status=?";
+
 
 }
 	
